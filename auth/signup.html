@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>PeshoX Intelligence | Identity Forge</title>
+    <!-- Global assets -->
+    <link rel="stylesheet" href="/assets/css/global.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Page-specific CSS -->
+    <link rel="stylesheet" href="/auth/signup.css">
+    <!-- Global JS -->
+    <script src="/assets/js/global.js" defer></script>
+    <!-- Page-specific JS -->
+    <script src="/auth/signup.js" defer></script>
+</head>
+<body>
+    <div class="main-content signup-container">
+        <div class="signup-card">
+            <h1><i class="fas fa-key"></i> Identity Forge</h1>
+
+            <!-- Bilingual Instructions -->
+            <div class="instructions-box">
+                <div class="bilingual">
+                    <span class="english-text">Generate your unique access key. Copy it, save it somewhere safe, and paste it below to confirm.</span>
+                    <span class="urdu-text">اپنی منفرد رسائی کلید بنائیں۔ اسے کاپی کریں، کہیں محفوظ رکھیں، اور تصدیق کے لیے نیچے پیسٹ کریں۔</span>
+                </div>
+            </div>
+
+            <!-- Generate Key Button -->
+            <button id="generateKeyBtn" class="btn-primary">
+                <i class="fas fa-sync-alt"></i> GENERATE MY KEY
+            </button>
+
+            <!-- Key Display Area (hidden initially) -->
+            <div id="keyDisplayArea" class="key-display-area" style="display: none;">
+                <div class="key-box">
+                    <code id="generatedKey" class="key-text"></code>
+                    <button id="copyKeyBtn" class="btn-small">
+                        <i class="fas fa-copy"></i> COPY
+                    </button>
+                </div>
+                <div class="paste-section">
+                    <div class="bilingual">
+                        <span class="english-text">Confirm your key by pasting it below:</span>
+                        <span class="urdu-text">نیچے پیسٹ کر کے اپنی کلید کی تصدیق کریں:</span>
+                    </div>
+                    <input type="text" id="pasteKeyInput" placeholder="Paste the generated key here..." maxlength="99" autocomplete="off">
+                </div>
+                <button id="signupSubmitBtn" class="btn-primary" disabled>
+                    <i class="fas fa-user-plus"></i> SIGNUP
+                </button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

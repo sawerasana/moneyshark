@@ -1,0 +1,96 @@
+/* Key Generation specific styles */
+.signup-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+}
+
+.signup-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-red);
+    border-radius: 28px;
+    padding: 2rem;
+    max-width: 650px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 0 25px rgba(255,0,0,0.2);
+}
+
+.signup-card h1 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: var(--neon-red);
+}
+
+.instructions-box {
+    background: #1a0000;
+    border-left: 4px solid var(--neon-red);
+    padding: 1rem;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.key-display-area {
+    margin-top: 1.5rem;
+    animation: fadeIn 0.3s ease;
+}
+
+.key-box {
+    background: #0a0a0a;
+    border: 1px solid #ff000044;
+    border-radius: 16px;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 0 10px rgba(255,0,0,0.3);
+}
+
+.key-text {
+    font-family: monospace;
+    font-size: 0.75rem;
+    word-break: break-all;
+    color: #ff6666;
+    flex: 1;
+    background: #00000066;
+    padding: 0.5rem;
+    border-radius: 8px;
+}
+
+.paste-section {
+    margin-bottom: 1.5rem;
+}
+
+.paste-section .bilingual {
+    margin-bottom: 0.5rem;
+    font-size: 0.85rem;
+}
+
+#pasteKeyInput {
+    font-family: monospace;
+    text-align: center;
+    background: var(--bg-input);
+}
+
+#signupSubmitBtn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background: #555;
+    box-shadow: none;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .signup-card {
+        padding: 1.2rem;
+    }
+    .key-box {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}
