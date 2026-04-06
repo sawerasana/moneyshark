@@ -1,0 +1,40 @@
+/* Shared legal page styles */
+.legal-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    padding: 2rem;
+}
+.legal-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-red);
+    border-radius: 28px;
+    padding: 2rem;
+    max-width: 900px;
+    width: 100%;
+    box-shadow: 0 0 25px rgba(255,0,0,0.2);
+}
+.legal-card h1 {
+    text-align: center;
+    color: var(--neon-red);
+    margin-bottom: 1.5rem;
+}
+.legal-content section {
+    margin-bottom: 1.5rem;
+    border-left: 3px solid var(--neon-red);
+    padding-left: 1rem;
+}
+.legal-content h2 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: #ff8888;
+}
+.legal-content p {
+    margin: 0.3rem 0;
+    line-height: 1.4;
+}
+.legal-footer {
+    text-align: center;
+    margin-top: 2rem;
+}
