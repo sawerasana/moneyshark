@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>PeshoX Intelligence | Identification Protocol</title>
+    <!-- Global assets -->
+    <link rel="stylesheet" href="/assets/css/global.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Page-specific CSS -->
+    <link rel="stylesheet" href="/setup/profile-setup.css">
+    <!-- Global JS -->
+    <script src="/assets/js/global.js" defer></script>
+    <!-- Page-specific JS -->
+    <script src="/setup/profile-setup.js" defer></script>
+</head>
+<body>
+    <div class="main-content setup-container">
+        <div class="setup-card">
+            <h1><i class="fas fa-id-card"></i> Identification Protocol</h1>
+
+            <!-- Progress Bar -->
+            <div class="progress-wrapper">
+                <div class="step-progress">
+                    <div class="progress-fill" id="progressFill" style="width: 0%;"></div>
+                </div>
+                <div class="step-labels">
+                    <span class="step-label" data-step="0"><i class="fas fa-user"></i> Identity</span>
+                    <span class="step-label" data-step="1"><i class="fas fa-plane"></i> Platform</span>
+                    <span class="step-label" data-step="2"><i class="fas fa-mobile-alt"></i> Mobile</span>
+                    <span class="step-label" data-step="3"><i class="fas fa-lock"></i> PIN</span>
+                    <span class="step-label" data-step="4"><i class="fas fa-sliders-h"></i> Preferences</span>
+                    <span class="step-label" data-step="5"><i class="fas fa-shield-alt"></i> Legal</span>
+                </div>
+            </div>
+
+            <!-- Step 1: Full Name -->
+            <div class="step-container active" id="step0">
+                <div class="step-icon"><i class="fas fa-user"></i></div>
+                <div class="bilingual">
+                    <span class="english-text">Enter your full legal name</span>
+                    <span class="urdu-text">اپنا مکمل قانونی نام درج کریں</span>
+                </div>
+                <input type="text" id="fullName" placeholder="Full Name / پورا نام" autocomplete="off">
+                <div class="step-buttons">
+                    <button class="next-step btn-primary">Next <span class="urdu-text">اگلا</span> <i class="fas fa-arrow-right"></i></button>
+                </div>
+            </div>
+
+            <!-- Step 2: Aviator Platform -->
+            <div class="step-container" id="step1">
+                <div class="step-icon"><i class="fas fa-plane"></i></div>
+                <div class="bilingual">
+                    <span class="english-text">Select your Aviator platform</span>
+                    <span class="urdu-text">اپنا ایوی ایٹر پلیٹ فارم منتخب کریں</span>
+                </div>
+                <select id="platformSelect" class="platform-select">
+                    <option value="1win">1win</option>
+                    <option value="Pin-Up">Pin-Up</option>
+                    <option value="Mostbet">Mostbet</option>
+                    <option value="1xBet">1xBet</option>
+                    <option value="Parimatch">Parimatch</option>
+                    <option value="Bet365">Bet365</option>
+                    <option value="Betway">Betway</option>
+                    <option value="22Bet">22Bet</option>
+                    <option value="888casino">888casino</option>
+                    <option value="Stake">Stake</option>
+                </select>
+                <div class="step-buttons">
+                    <button class="prev-step btn-secondary"><i class="fas fa-arrow-left"></i> <span class="urdu-text">پیچھے</span></button>
+                    <button class="next-step btn-primary">Next <span class="urdu-text">اگلا</span> <i class="fas fa-arrow-right"></i></button>
+                </div>
+            </div>
+
+            <!-- Step 3: Mobile Number -->
+            <div class="step-container" id="step2">
+                <div class="step-icon"><i class="fas fa-mobile-alt"></i></div>
+                <div class="bilingual">
+                    <span class="english-text">Mobile number (include country code)</span>
+                    <span class="urdu-text">موبائل نمبر (کنٹری کوڈ کے ساتھ)</span>
+                </div>
+                <input type="tel" id="mobileNumber" placeholder="+923001234567" autocomplete="off">
+                <small class="input-hint">Must start with +. Pakistan numbers (+92) exactly 13 characters.</small>
+                <div class="step-buttons">
+                    <button class="prev-step btn-secondary"><i class="fas fa-arrow-left"></i> <span class="urdu-text">پیچھے</span></button>
+                    <button class="next-step btn-primary">Next <span class="urdu-text">اگلا</span> <i class="fas fa-arrow-right"></i></button>
+                </div>
+            </div>
+
+            <!-- Step 4: Intelligence PIN (4 digits) -->
+            <div class="step-container" id="step3">
+                <div class="step-icon"><i class="fas fa-lock"></i></div>
+                <div class="bilingual">
+                    <span class="english-text">Set a 4-digit Intelligence PIN</span>
+                    <span class="urdu-text">4 ہندسوں کا انٹیلی جنس پن سیٹ کریں</span>
+                </div>
+                <input type="password" id="intelligencePin" maxlength="4" pattern="\d*" inputmode="numeric" placeholder="••••" autocomplete="off">
+                <div class="step-buttons">
+                    <button class="prev-step btn-secondary"><i class="fas fa-arrow-left"></i> <span class="urdu-text">پیچھے</span></button>
+                    <button class="next-step btn-primary">Next <span class="urdu-text">اگلا</span> <i class="fas fa-arrow-right"></i></button>
+                </div>
+            </div>
+
+            <!-- Step 5: Preferences (Toggle switches) -->
+            <div class="step-container" id="step4">
+                <div class="step-icon"><i class="fas fa-sliders-h"></i></div>
+                <div class="bilingual">
+                    <span class="english-text">Configure your intelligence preferences</span>
+                    <span class="urdu-text">اپنی انٹیلی جنس ترجیحات ترتیب دیں</span>
+                </div>
+                <div class="toggle-group">
+                    <label class="toggle-label">
+                        <span class="english-text">High Accuracy Mode</span>
+                        <span class="urdu-text">اعلی درستگی موڈ</span>
+                        <input type="checkbox" id="highAccuracyMode" class="toggle-input">
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+                <div class="toggle-group">
+                    <label class="toggle-label">
+                        <span class="english-text">Signal Notifications</span>
+                        <span class="urdu-text">سگنل نوٹیفیکیشنز</span>
+                        <input type="checkbox" id="signalNotifications" class="toggle-input">
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+                <div class="step-buttons">
+                    <button class="prev-step btn-secondary"><i class="fas fa-arrow-left"></i> <span class="urdu-text">پیچھے</span></button>
+                    <button class="next-step btn-primary">Next <span class="urdu-text">اگلا</span> <i class="fas fa-arrow-right"></i></button>
+                </div>
+            </div>
+
+            <!-- Step 6: Legal & Final -->
+            <div class="step-container" id="step5">
+                <div class="step-icon"><i class="fas fa-shield-alt"></i></div>
+                <div class="legal-box">
+                    <div class="bilingual">
+                        <span class="english-text">By proceeding, you confirm that you have read and agree to our legal terms.</span>
+                        <span class="urdu-text">آگے بڑھنے سے، آپ تصدیق کرتے ہیں کہ آپ نے ہماری قانونی شرائط پڑھ لی ہیں اور ان سے متفق ہیں۔</span>
+                    </div>
+                </div>
+                <div class="terms-links">
+                    <i class="fas fa-file-alt"></i>
+                    <a href="/legal/terms.html" target="_blank">Terms of Service</a> &nbsp;|&nbsp;
+                    <a href="/legal/privacy.html" target="_blank">Privacy Policy</a>
+                    <div class="bilingual">
+                        <span class="english-text">Click here to read the full documents.</span>
+                        <span class="urdu-text">مکمل دستاویزات پڑھنے کے لیے یہاں کلک کریں۔</span>
+                    </div>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="agreeCheckbox">
+                    <label for="agreeCheckbox">I confirm that I have read and agree to the Terms & Privacy Policy.</label>
+                </div>
+                <div class="step-buttons">
+                    <button class="prev-step btn-secondary"><i class="fas fa-arrow-left"></i> <span class="urdu-text">پیچھے</span></button>
+                    <button id="proceedBtn" class="btn-primary" disabled>FINALIZE IDENTIFICATION <i class="fas fa-check-circle"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

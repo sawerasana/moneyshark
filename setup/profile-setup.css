@@ -1,0 +1,113 @@
+/* Profile Setup specific styles */
+.setup-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    padding: 1rem;
+}
+
+.setup-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-red);
+    border-radius: 28px;
+    padding: 2rem;
+    width: 100%;
+    max-width: 650px;
+    box-shadow: 0 0 25px rgba(255,0,0,0.2);
+}
+
+.setup-card h1 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: var(--neon-red);
+    font-size: 1.6rem;
+}
+
+/* Progress indicator */
+.progress-wrapper {
+    margin-bottom: 2rem;
+}
+.step-progress {
+    background: #333;
+    border-radius: 20px;
+    height: 6px;
+    overflow: hidden;
+    margin-bottom: 0.5rem;
+}
+.progress-fill {
+    background: linear-gradient(90deg, #ff0000, #ff4444);
+    width: 0%;
+    height: 100%;
+    transition: width 0.3s ease;
+}
+.step-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.65rem;
+    color: var(--text-muted);
+}
+.step-label.active {
+    color: var(--neon-red);
+    font-weight: bold;
+}
+
+/* Step containers */
+.step-container {
+    display: none;
+    animation: fadeIn 0.3s ease;
+}
+.step-container.active {
+    display: block;
+}
+.step-icon {
+    text-align: center;
+    font-size: 2rem;
+    color: var(--neon-red);
+    margin-bottom: 1rem;
+}
+.input-group input, .step-container input, .step-container select {
+    width: 100%;
+    margin-bottom: 0.5rem;
+}
+.platform-select {
+    width: 100%;
+    background: var(--bg-input);
+    border: 1px solid var(--border-red);
+    border-radius: 12px;
+    padding: 0.5rem;
+    margin: 1rem 0;
+    font-family: 'Inter', monospace;
+}
+.step-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    justify-content: space-between;
+}
+.legal-box {
+    background: #1a0000;
+    border-left: 4px solid var(--neon-red);
+    padding: 1rem;
+    border-radius: 12px;
+    margin: 1rem 0;
+    font-size: 0.85rem;
+}
+.terms-links {
+    margin: 1rem 0;
+    text-align: center;
+}
+.terms-links a {
+    color: #00aaff;
+    text-decoration: underline;
+}
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 1rem 0;
+}
+.checkbox-group input {
+    width: auto;
+    transform: scale(1.2);
+}
