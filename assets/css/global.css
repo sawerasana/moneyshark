@@ -1,0 +1,367 @@
+/* ========== GLOBAL DARK THEME – PeshoX Intelligence ========== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&family=Noto+Nastaliq+Urdu:wght@400;500;700&display=swap');
+
+:root {
+    --bg-deep: #050505;
+    --bg-card: #1a1a1a;
+    --bg-input: #0f0f0f;
+    --neon-red: #ff0000;
+    --neon-red-glow: rgba(255, 0, 0, 0.4);
+    --neon-green: #00ff00;
+    --neon-green-glow: rgba(0, 255, 0, 0.3);
+    --neon-blue: #00bfff;
+    --neon-gold: #ffd700;
+    --text-white: #ffffff;
+    --text-muted: #aaaaaa;
+    --border-red: rgba(255, 0, 0, 0.3);
+    --glass-bg: rgba(26, 26, 26, 0.7);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    background-color: var(--bg-deep);
+    color: var(--text-white);
+    font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    line-height: 1.5;
+}
+
+.main-content {
+    flex: 1;
+    padding: 2rem 1.5rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+    animation: fadeIn 0.3s ease;
+}
+
+/* ---------- Bilingual & Urdu Typography Fix ---------- */
+.bilingual {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+.english-text {
+    font-family: 'Inter', sans-serif;
+}
+.urdu-text {
+    font-family: 'Noto Nastaliq Urdu', serif;
+    font-size: 0.85rem;
+    line-height: 1.8;
+    word-spacing: 0.2em;
+    direction: rtl;
+    text-align: right;
+}
+
+/* ---------- Glassmorphism Card ---------- */
+.glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border-red);
+    border-radius: 28px;
+    padding: 1.5rem;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.1);
+}
+
+/* ---------- Buttons (No rectangular outline) ---------- */
+button, .btn-primary, .btn-secondary, .btn-small, .btn-danger {
+    background: linear-gradient(135deg, var(--neon-red), #cc0000);
+    border: none;
+    color: white;
+    font-weight: 600;
+    padding: 10px 24px;
+    border-radius: 40px;
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 8px var(--neon-red-glow);
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+}
+button:focus, .btn-primary:focus, .btn-secondary:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--neon-red-glow);
+}
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px var(--neon-red-glow);
+}
+.btn-secondary {
+    background: transparent;
+    border: 2px solid var(--neon-red);
+    box-shadow: none;
+}
+.btn-secondary:hover {
+    background: rgba(255, 0, 0, 0.15);
+}
+.btn-small {
+    background: #333;
+    padding: 5px 12px;
+    font-size: 0.8rem;
+}
+.btn-danger {
+    background: #8b0000;
+}
+.btn-danger:hover {
+    background: #cc0000;
+}
+
+/* ---------- Inputs, Selects, Textareas ---------- */
+input, select, textarea {
+    background-color: var(--bg-input);
+    border: 1px solid var(--border-red);
+    color: var(--text-white);
+    padding: 10px 14px;
+    border-radius: 12px;
+    font-family: 'Inter', monospace;
+    width: 100%;
+    transition: 0.2s;
+    outline: none;
+}
+input:focus, select:focus, textarea:focus {
+    border-color: var(--neon-red);
+    box-shadow: 0 0 0 2px var(--neon-red-glow);
+}
+
+/* ---------- Global Loader Overlay (PX.showLoader) ---------- */
+.global-loader-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(6px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.2s;
+}
+.global-loader-overlay.active {
+    visibility: visible;
+    opacity: 1;
+}
+.loader-container {
+    background: var(--bg-card);
+    border: 1px solid var(--neon-red);
+    border-radius: 28px;
+    padding: 2rem;
+    text-align: center;
+    min-width: 250px;
+}
+.loader-spinner {
+    border: 3px solid #333;
+    border-top: 3px solid var(--neon-red);
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 1rem;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* ---------- Modal Overlay (PX.showModal) ---------- */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(4px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10001;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.2s;
+}
+.modal-overlay.active {
+    visibility: visible;
+    opacity: 1;
+}
+.modal-container {
+    background: var(--bg-card);
+    border: 1px solid var(--neon-red);
+    border-radius: 28px;
+    padding: 1.5rem;
+    max-width: 450px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 0 30px rgba(255, 0, 0, 0.4);
+}
+.modal-container h3 {
+    color: var(--neon-red);
+    margin-bottom: 0.5rem;
+}
+.modal-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 1.2rem;
+}
+
+/* ---------- Status Dots (Payment Gateway) ---------- */
+.status-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 0 6px 0 0;
+    vertical-align: middle;
+}
+.status-dot.green {
+    background: var(--neon-green);
+    box-shadow: 0 0 6px var(--neon-green);
+    animation: pulseGreen 1.5s infinite;
+}
+.status-dot.red {
+    background: #ff0000;
+    box-shadow: 0 0 6px #ff0000;
+}
+@keyframes pulseGreen {
+    0% { opacity: 0.6; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.2); }
+    100% { opacity: 0.6; transform: scale(1); }
+}
+
+/* ---------- "Most Popular" Ribbon (Professional) ---------- */
+.ribbon {
+    position: absolute;
+    top: 12px;
+    right: -10px;
+    background: linear-gradient(135deg, #ff4444, #cc0000);
+    color: white;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 6px 20px;
+    border-radius: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    letter-spacing: 0.5px;
+    z-index: 2;
+}
+/* Alternative style if card has overflow hidden */
+.plan-card.premium {
+    overflow: visible;
+}
+
+/* ---------- Branding (Top Right) ---------- */
+.peshox-brand {
+    position: fixed;
+    top: 16px;
+    right: 20px;
+    z-index: 1000;
+    background: rgba(0,0,0,0.7);
+    backdrop-filter: blur(8px);
+    padding: 6px 14px;
+    border-radius: 40px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    border: 1px solid var(--border-red);
+    color: var(--neon-red);
+    font-family: monospace;
+    pointer-events: none;
+}
+
+/* ---------- WhatsApp Float ---------- */
+.whatsapp-float {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background-color: #25D366;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    cursor: pointer;
+    z-index: 1000;
+    transition: transform 0.2s;
+}
+.whatsapp-float:hover {
+    transform: scale(1.08);
+}
+.whatsapp-float i {
+    font-size: 32px;
+    color: white;
+}
+
+/* ---------- Footer ---------- */
+.global-footer {
+    background-color: var(--bg-card);
+    border-top: 1px solid var(--border-red);
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    margin-top: auto;
+}
+
+/* ---------- Animations ---------- */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes pulseRed {
+    0% { text-shadow: 0 0 0px var(--neon-red); }
+    50% { text-shadow: 0 0 8px var(--neon-red); }
+    100% { text-shadow: 0 0 0px var(--neon-red); }
+}
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* ---------- Utility Classes ---------- */
+.pulse-timer {
+    animation: pulseRed 0.5s infinite;
+}
+.glow-text {
+    text-shadow: 0 0 6px var(--neon-red);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+    .main-content {
+        padding: 1rem;
+    }
+    .peshox-brand {
+        font-size: 0.6rem;
+        padding: 4px 10px;
+        top: 12px;
+        right: 12px;
+    }
+    .urdu-text {
+        font-size: 0.8rem;
+    }
+    .modal-container {
+        width: 95%;
+        padding: 1.2rem;
+    }
+    .ribbon {
+        font-size: 0.6rem;
+        padding: 4px 14px;
+        top: 8px;
+        right: -8px;
+    }
+}
+
