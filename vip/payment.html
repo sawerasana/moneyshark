@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>PeshoX Intelligence | Secure Payment Protocol</title>
+    <!-- Global assets -->
+    <link rel="stylesheet" href="/assets/css/global.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Page-specific CSS -->
+    <link rel="stylesheet" href="/vip/payment.css">
+    <!-- Global JS -->
+    <script src="/assets/js/global.js" defer></script>
+    <!-- Page-specific JS -->
+    <script src="/vip/payment.js" defer></script>
+</head>
+<body>
+    <div class="main-content payment-container">
+        <h1><i class="fas fa-shield-alt"></i> Secure Payment Protocol</h1>
+
+        <!-- Payment Method Header -->
+        <div class="method-header">
+            <div class="method-icon">
+                <i class="fas fa-mobile-alt"></i>
+            </div>
+            <div class="method-info">
+                <div class="bilingual">
+                    <span class="english-text">Easypaisa – Online Gateway</span>
+                    <span class="urdu-text">ایزی پیسہ – آن لائن گیٹ وے</span>
+                </div>
+                <div class="status-badge">
+                    <span class="status-dot green pulse"></span>
+                    <span class="english-text">Server Online</span>
+                    <span class="urdu-text">سرور آن لائن ہے</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Target Account Display -->
+        <div class="target-account">
+            <div class="bilingual">
+                <span class="english-text">Send payment to (Official Merchant)</span>
+                <span class="urdu-text">ادائیگی بھیجیں (سرکاری تاجر)</span>
+            </div>
+            <div class="account-number" id="accountNumber">03469393997</div>
+            <button id="copyAccountBtn" class="btn-small">
+                <i class="fas fa-copy"></i> COPY NUMBER
+            </button>
+        </div>
+
+        <!-- TRX Input Section -->
+        <div class="trx-section">
+            <div class="bilingual">
+                <span class="english-text">After transfer, enter the 11-digit TRX ID found in your SMS</span>
+                <span class="urdu-text">منتقلی کے بعد، اپنے SMS میں موجود 11 ہندسوں کا TRX ID درج کریں</span>
+            </div>
+            <div class="example-hint bilingual">
+                <span class="english-text">Example: 48062863334</span>
+                <span class="urdu-text">مثال: 48062863334</span>
+            </div>
+            <div class="trx-input-group">
+                <input type="text" id="trxInput" placeholder="Enter TRX ID" maxlength="15" autocomplete="off" pattern="\d*" inputmode="numeric">
+                <button id="confirmPaymentBtn" class="btn-primary">CONFIRM PAYMENT</button>
+            </div>
+        </div>
+
+        <!-- Loading Spinner (hidden initially) -->
+        <div id="loadingSpinner" class="loader-area" style="display: none;">
+            <div class="loader-spinner"></div>
+            <div id="spinnerMessage" class="bilingual">
+                <span class="english-text">Verifying TRX...</span>
+                <span class="urdu-text">ٹی آر ایکس کی تصدیق ہو رہی ہے...</span>
+            </div>
+        </div>
+
+        <!-- Success Area (hidden initially) -->
+        <div id="successArea" class="success-area" style="display: none;">
+            <div class="glow-green-box">
+                <i class="fas fa-circle-check"></i>
+                <div class="bilingual">
+                    <span class="english-text">PAYMENT CONFIRMED</span>
+                    <span class="urdu-text">ادائیگی کی تصدیق ہوگئی</span>
+                </div>
+                <div class="bilingual">
+                    <span class="english-text">Your Access Key:</span>
+                    <span class="urdu-text">آپ کی رسائی کلید:</span>
+                </div>
+                <code id="generatedKeyDisplay" class="key-code"></code>
+                <button id="copyKeyBtn" class="btn-small">
+                    <i class="fas fa-copy"></i> COPY KEY
+                </button>
+            </div>
+            <button id="backToPlansBtn" class="btn-secondary">
+                <i class="fas fa-arrow-left"></i> BACK TO PLANS
+            </button>
+        </div>
+
+        <!-- Back Button (always visible) -->
+        <div class="back-button-container">
+            <button id="backBtn" class="btn-secondary">
+                <i class="fas fa-arrow-left"></i> BACK
+            </button>
+        </div>
+    </div>
+</body>
+</html>

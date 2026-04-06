@@ -1,0 +1,120 @@
+/* Payment Hub specific styles – Fintech dark theme */
+.payment-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 1.5rem;
+}
+.payment-container h1 {
+    text-align: center;
+    color: var(--neon-red);
+    margin-bottom: 1.5rem;
+}
+
+/* Methods Grid */
+.methods-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+.method-card {
+    background: var(--bg-card);
+    border: 1px solid #333;
+    border-radius: 20px;
+    padding: 1rem;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.method-card:hover {
+    border-color: var(--neon-red);
+    transform: translateY(-3px);
+}
+.method-card i {
+    font-size: 1.8rem;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+.status-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 0.3rem auto;
+}
+.status-dot.green {
+    background: #00ff00;
+    box-shadow: 0 0 6px #00ff00;
+}
+.status-dot.red {
+    background: #ff0000;
+    box-shadow: 0 0 6px #ff0000;
+}
+.status-dot.pulse {
+    animation: pulseDot 1.5s infinite;
+}
+@keyframes pulseDot {
+    0% { opacity: 0.5; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.2); }
+    100% { opacity: 0.5; transform: scale(1); }
+}
+.status-text {
+    font-size: 0.7rem;
+    display: block;
+}
+
+/* Payment Workflow */
+.payment-workflow {
+    background: #0a0a0acc;
+    border: 1px solid var(--border-red);
+    border-radius: 28px;
+    padding: 1.5rem;
+    margin-top: 1rem;
+}
+.details-box {
+    background: #1a0000;
+    border-left: 4px solid var(--neon-red);
+    padding: 1rem;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+}
+.trx-group {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+}
+.trx-group input {
+    flex: 2;
+    min-width: 200px;
+}
+.loader-area {
+    text-align: center;
+    margin: 1rem 0;
+}
+.success-area {
+    text-align: center;
+}
+.glow-green-box {
+    background: #004d00;
+    border: 2px solid #00ff00;
+    border-radius: 20px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 0 20px #00ff00aa;
+    color: #ccffcc;
+}
+.key-code {
+    font-family: monospace;
+    font-size: 0.9rem;
+    background: #000000aa;
+    padding: 0.3rem;
+    display: inline-block;
+    margin: 0.5rem 0;
+    word-break: break-all;
+}
+.btn-small {
+    background: #333;
+    padding: 6px 12px;
+    font-size: 0.8rem;
+}

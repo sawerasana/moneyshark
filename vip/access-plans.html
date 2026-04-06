@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>PeshoX Intelligence | VIP Gateway</title>
+    <!-- Global assets -->
+    <link rel="stylesheet" href="/assets/css/global.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Page-specific CSS -->
+    <link rel="stylesheet" href="/vip/access-plans.css">
+    <!-- Global JS -->
+    <script src="/assets/js/global.js" defer></script>
+    <!-- Page-specific JS -->
+    <script src="/vip/access-plans.js" defer></script>
+</head>
+<body>
+    <div class="main-content plans-container">
+        <h1><i class="fas fa-crown"></i> VIP Gateway</h1>
+
+        <!-- Plan Cards (Basic, Standard, Premium) -->
+        <div class="plans-stack">
+            <!-- Basic Plan (30 minutes) -->
+            <div class="plan-card basic">
+                <div class="plan-header">
+                    <h2>BASIC</h2>
+                    <div class="price">7,000 PKR</div>
+                    <div class="duration bilingual">
+                        <span class="english-text">30 Minutes Access</span>
+                        <span class="urdu-text">30 منٹ کی رسائی</span>
+                    </div>
+                    <div class="features">
+                        <div><i class="fas fa-check-circle"></i> <span class="english-text">Real-time radar</span> <span class="urdu-text">ریئل ٹائم ریڈار</span></div>
+                        <div><i class="fas fa-check-circle"></i> <span class="english-text">Basic prediction engine</span> <span class="urdu-text">بنیادی پیشن گوئی انجن</span></div>
+                    </div>
+                </div>
+                <button class="select-plan-btn" data-plan="basic">SELECT PLAN</button>
+            </div>
+
+            <!-- Standard Plan (24 hours) -->
+            <div class="plan-card standard">
+                <div class="plan-header">
+                    <h2>STANDARD</h2>
+                    <div class="price">15,000 PKR</div>
+                    <div class="duration bilingual">
+                        <span class="english-text">24 Hours Access</span>
+                        <span class="urdu-text">24 گھنٹے کی رسائی</span>
+                    </div>
+                    <div class="features">
+                        <div><i class="fas fa-check-circle"></i> <span class="english-text">Full radar suite</span> <span class="urdu-text">مکمل ریڈار سوٹ</span></div>
+                        <div><i class="fas fa-check-circle"></i> <span class="english-text">Priority signal processing</span> <span class="urdu-text">ترجیحی سگنل پروسیسنگ</span></div>
+                    </div>
+                </div>
+                <button class="select-plan-btn" data-plan="standard">SELECT PLAN</button>
+            </div>
+
+            <!-- Premium Plan (72 hours) with Most Popular tag -->
+            <div class="plan-card premium">
+                <div class="ribbon">MOST POPULAR</div>
+                <div class="plan-header">
+                    <h2>PREMIUM</h2>
+                    <div class="price">25,000 PKR</div>
+                    <div class="duration bilingual">
+                        <span class="english-text">72 Hours Access</span>
+                        <span class="urdu-text">72 گھنٹے کی رسائی</span>
+                    </div>
+                    <div class="features">
+                        <div><i class="fas fa-check-circle"></i> <span class="english-text">Unlimited predictions</span> <span class="urdu-text">لامحدود پیشن گوئیاں</span></div>
+                        <div><i class="fas fa-check-circle"></i> <span class="english-text">VIP support channel</span> <span class="urdu-text">VIP سپورٹ چینل</span></div>
+                        <div><i class="fas fa-check-circle"></i> <span class="english-text">Early access to features</span> <span class="urdu-text">فیچرز تک جلد رسائی</span></div>
+                    </div>
+                </div>
+                <button class="select-plan-btn" data-plan="premium">SELECT PLAN</button>
+            </div>
+        </div>
+
+        <!-- Protocol Activation Section -->
+        <div class="activation-section">
+            <h3><i class="fas fa-key"></i> Protocol Activation</h3>
+            <div class="bilingual">
+                <span class="english-text">If you have already paid, paste your unique 33/44/55 character key above to unlock the radar.</span>
+                <span class="urdu-text">اگر آپ پہلے ہی ادائیگی کر چکے ہیں تو ریڈار کھولنے کے لیے اپنی منفرد 33/44/55 حروف والی کلید اوپر پیسٹ کریں۔</span>
+            </div>
+            <div class="key-input-group">
+                <input type="text" id="accessKeyInput" placeholder="PASTE ACCESS KEY HERE">
+                <button id="activateKeyBtn" class="btn-primary">ACTIVATE KEY</button>
+            </div>
+        </div>
+
+        <!-- User Feedback (Review Feed) -->
+        <div class="reviews-section">
+            <h2><i class="fas fa-star"></i> User Feedback</h2>
+            <div class="reviews-feed" id="reviewsFeed">
+                <!-- Reviews will be injected via JavaScript -->
+            </div>
+        </div>
+    </div>
+</body>
+</html>

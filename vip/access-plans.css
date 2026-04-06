@@ -1,0 +1,170 @@
+/* Access Plans specific styles – Glassmorphism + glowing cards */
+.plans-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 1.5rem;
+}
+.plans-container h1 {
+    text-align: center;
+    color: var(--neon-red);
+    margin-bottom: 1.5rem;
+}
+
+/* Activation Section */
+.activation-section {
+    background: rgba(26,26,26,0.7);
+    backdrop-filter: blur(8px);
+    border: 1px solid var(--border-red);
+    border-radius: 28px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+.key-input-group {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+}
+.key-input-group input {
+    flex: 2;
+    min-width: 200px;
+}
+.hint {
+    margin-top: 0.8rem;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+/* Plan Cards Stack – Glassmorphism */
+.plans-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+}
+.plan-card {
+    background: rgba(15,15,15,0.8);
+    backdrop-filter: blur(4px);
+    border-radius: 28px;
+    padding: 1.5rem;
+    position: relative;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.plan-card:hover {
+    transform: translateY(-3px);
+}
+/* Premium: pulsing glow + cyan */
+.plan-card.premium {
+    border: 2px solid #00bfff;
+    background: linear-gradient(135deg, rgba(0,191,255,0.1), rgba(0,30,40,0.9));
+    box-shadow: 0 0 20px rgba(0,191,255,0.4);
+    animation: premiumPulse 2s infinite;
+}
+@keyframes premiumPulse {
+    0% { box-shadow: 0 0 15px rgba(0,191,255,0.3); }
+    50% { box-shadow: 0 0 30px rgba(0,191,255,0.7); }
+    100% { box-shadow: 0 0 15px rgba(0,191,255,0.3); }
+}
+.plan-card.premium .price { color: #00ffff; text-shadow: 0 0 5px cyan; }
+.ribbon {
+    position: absolute;
+    top: 12px;
+    right: -20px;
+    background: #ff4444;
+    color: white;
+    padding: 4px 30px;
+    transform: rotate(45deg);
+    font-size: 0.7rem;
+    font-weight: bold;
+    z-index: 1;
+}
+/* Standard: silver/gold */
+.plan-card.standard {
+    border: 1px solid #ffd700;
+    background: linear-gradient(135deg, rgba(255,215,0,0.05), rgba(30,20,0,0.9));
+}
+.plan-card.standard .price { color: #ffd700; text-shadow: 0 0 3px gold; }
+/* Basic: bronze */
+.plan-card.basic {
+    border: 1px solid #cd7f32;
+    background: rgba(20,15,10,0.8);
+}
+.plan-card.basic .price { color: #cd7f32; }
+.plan-header h2 { font-size: 1.8rem; margin-bottom: 0.5rem; }
+.price { font-size: 1.8rem; font-weight: bold; margin: 0.5rem 0; }
+.duration { font-size: 0.9rem; color: #bbb; }
+.select-plan-btn {
+    background: #333;
+    margin-top: 1rem;
+    width: 60%;
+}
+.plan-card.premium .select-plan-btn { background: #00bfff; color: black; }
+.plan-card.standard .select-plan-btn { background: #ffd700; color: black; }
+.plan-card.basic .select-plan-btn { background: #cd7f32; color: black; }
+
+/* Reviews Section */
+.reviews-section {
+    background: rgba(10,10,10,0.8);
+    backdrop-filter: blur(4px);
+    border: 1px solid var(--border-red);
+    border-radius: 28px;
+    padding: 1.5rem;
+}
+.reviews-section h2 {
+    text-align: center;
+    margin-bottom: 0.5rem;
+    color: var(--neon-red);
+}
+.note {
+    text-align: center;
+    font-size: 0.75rem;
+    margin-bottom: 1rem;
+    color: #ff8888;
+}
+.reviews-feed {
+    max-height: 500px;
+    overflow-y: auto;
+}
+.review-card {
+    background: #0f0f0f;
+    border-left: 3px solid var(--neon-red);
+    padding: 0.8rem;
+    margin-bottom: 0.8rem;
+    border-radius: 12px;
+}
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 0.3rem;
+}
+.reviewer-name { font-weight: bold; color: #ff8888; }
+.review-badge {
+    font-size: 0.65rem;
+    padding: 2px 8px;
+    border-radius: 12px;
+    background: #333;
+}
+.review-badge.premium { background: #00bfff; color: black; }
+.review-badge.standard { background: #ffd700; color: black; }
+.review-badge.basic { background: #cd7f32; color: white; }
+.review-stars { color: #ffaa00; letter-spacing: 2px; }
+.review-text { margin: 0.5rem 0; font-size: 0.85rem; }
+.review-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.7rem;
+    color: #aaa;
+}
+.like-btn, .comment-btn {
+    background: none;
+    border: none;
+    color: #ff6666;
+    cursor: pointer;
+    font-size: 0.7rem;
+    margin-left: 0.5rem;
+}
+.like-btn:hover, .comment-btn:hover { color: #ff0000; }
