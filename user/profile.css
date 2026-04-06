@@ -1,0 +1,116 @@
+/* Profile page specific styles */
+.profile-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 1.5rem;
+}
+
+/* Wallet Card */
+.wallet-card {
+    background: linear-gradient(135deg, #0a2a0a, #051505);
+    border: 1px solid #00ff00;
+    border-radius: 28px;
+    padding: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 0 20px rgba(0,255,0,0.2);
+}
+.wallet-icon i {
+    font-size: 2.5rem;
+    color: #00ff00;
+}
+.wallet-info {
+    flex: 1;
+}
+.wallet-balance {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #00ff88;
+    font-family: monospace;
+}
+
+/* Timer Card */
+.timer-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-red);
+    border-radius: 28px;
+    padding: 1rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+.plan-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #ff8888;
+    margin-bottom: 0.3rem;
+}
+.timer-display {
+    font-size: 1.3rem;
+    font-family: monospace;
+    font-weight: bold;
+    color: #ff8888;
+}
+.progress-ring-timer {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+
+/* Settings Card */
+.settings-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-red);
+    border-radius: 28px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+.settings-card h2 {
+    margin-bottom: 1rem;
+    color: var(--neon-red);
+}
+.form-group {
+    margin-bottom: 1.2rem;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+.platform-select {
+    width: 100%;
+    background: var(--bg-input);
+    border: 1px solid var(--border-red);
+    border-radius: 12px;
+    padding: 0.6rem;
+}
+#saveChangesBtn, #copyIdKeyBtn {
+    width: 100%;
+    margin-bottom: 0.8rem;
+}
+.nav-buttons {
+    display: flex;
+    gap: 1rem;
+}
+.nav-buttons button {
+    flex: 1;
+    padding: 12px;
+}
+.btn-danger {
+    background: #8b0000;
+}
+.btn-danger:hover {
+    background: #cc0000;
+}
+
+/* Pulse animation for timer when < 10 minutes */
+.pulse-timer {
+    animation: pulseRed 0.5s infinite;
+}
+@keyframes pulseRed {
+    0% { opacity: 1; text-shadow: 0 0 0 red; }
+    50% { opacity: 0.7; text-shadow: 0 0 5px red; }
+    100% { opacity: 1; text-shadow: 0 0 0 red; }
+}

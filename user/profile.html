@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>PeshoX Intelligence | Profile Hub</title>
+    <!-- Global assets -->
+    <link rel="stylesheet" href="/assets/css/global.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Page-specific CSS -->
+    <link rel="stylesheet" href="/user/profile.css">
+    <!-- Global JS -->
+    <script src="/assets/js/global.js" defer></script>
+    <!-- Page-specific JS -->
+    <script src="/user/profile.js" defer></script>
+</head>
+<body>
+    <div class="main-content profile-container">
+        <!-- Profile Header with Avatar -->
+        <div class="profile-header">
+            <div class="avatar">
+                <i class="fas fa-user-shield"></i>
+            </div>
+            <div class="profile-title">
+                <div class="bilingual">
+                    <span class="english-text">Intelligence Profile</span>
+                    <span class="urdu-text">انٹیلی جنس پروفائل</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Identity Cards -->
+        <div class="profile-card">
+            <h2><i class="fas fa-id-card"></i> Personal Information</h2>
+            <div class="info-row">
+                <span class="label english-text">Full Name:</span>
+                <span id="fullNameDisplay" class="value">Loading...</span>
+                <span class="label urdu-text">مکمل نام:</span>
+            </div>
+            <div class="info-row">
+                <span class="label english-text">Mobile Number:</span>
+                <span id="mobileDisplay" class="value">Loading...</span>
+                <span class="label urdu-text">موبائل نمبر:</span>
+            </div>
+            <div class="info-row">
+                <span class="label english-text">Aviator Platform:</span>
+                <span id="platformDisplay" class="value">Loading...</span>
+                <span class="label urdu-text">ایوی ایٹر پلیٹ فارم:</span>
+            </div>
+        </div>
+
+        <!-- Security Card -->
+        <div class="profile-card">
+            <h2><i class="fas fa-lock"></i> Security Credentials</h2>
+            <div class="info-row pin-row">
+                <span class="label english-text">Intelligence PIN:</span>
+                <span id="pinDisplay" class="value pin-masked">••••</span>
+                <button id="revealPinBtn" class="btn-small"><i class="fas fa-eye"></i> Reveal</button>
+                <span class="label urdu-text">انٹیلی جنس پن:</span>
+            </div>
+            <div class="info-row key-row">
+                <span class="label english-text">Access Key (99-char):</span>
+                <div class="key-container">
+                    <code id="accessKeyDisplay" class="key-code">••••••••••••••••••••</code>
+                    <button id="copyKeyBtn" class="btn-small"><i class="fas fa-copy"></i> Copy</button>
+                </div>
+                <span class="label urdu-text">رسائی کلید (99 حروف):</span>
+            </div>
+        </div>
+
+        <!-- Subscription Status Card -->
+        <div class="profile-card subscription-card">
+            <h2><i class="fas fa-clock"></i> Subscription Status</h2>
+            <div class="subscription-row">
+                <span class="label english-text">Plan Type:</span>
+                <span id="planTypeDisplay" class="value plan-type">Free</span>
+                <span class="label urdu-text">پلان کی قسم:</span>
+            </div>
+            <div class="subscription-row">
+                <span class="label english-text">Time Remaining:</span>
+                <span id="timeRemainingDisplay" class="value timer">Inactive</span>
+                <span class="label urdu-text">باقی وقت:</span>
+            </div>
+            <div class="progress-ring-container">
+                <canvas id="timerCanvas" width="60" height="60"></canvas>
+            </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="action-buttons">
+            <button id="copyAccessKeyBtn" class="btn-primary">
+                <i class="fas fa-copy"></i> COPY ACCESS KEY
+            </button>
+            <button id="logoutBtn" class="btn-danger">
+                <i class="fas fa-trash-alt"></i> DE-AUTHORIZE & WIPE DATA
+                <span class="urdu-text">ڈیٹا ختم کریں اور لاگ آؤٹ کریں</span>
+            </button>
+            <button id="supportBtn" class="btn-secondary">
+                <i class="fab fa-whatsapp"></i> CONTACT SUPPORT
+            </button>
+        </div>
+
+        <!-- Bottom Navigation Menu -->
+        <div class="bottom-nav">
+            <a href="/engine/dashboard.html" class="nav-item">
+                <i class="fas fa-chart-line"></i>
+                <span>Radar</span>
+            </a>
+            <a href="/user/profile.html" class="nav-item active">
+                <i class="fas fa-wallet"></i>
+                <span>Wallet</span>
+            </a>
+            <a href="/vip/access-plans.html" class="nav-item">
+                <i class="fas fa-crown"></i>
+                <span>VIP</span>
+            </a>
+            <a href="/user/profile.html" class="nav-item">
+                <i class="fas fa-user"></i>
+                <span>Profile</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Centered confirmation modal for logout -->
+    <div id="logoutModal" class="modal-overlay" style="display: none;">
+        <div class="modal-container">
+            <h3><i class="fas fa-exclamation-triangle"></i> Confirm De-authorization</h3>
+            <div class="bilingual">
+                <span class="english-text">Are you sure you want to wipe all local data and logout? This action cannot be undone.</span>
+                <span class="urdu-text">کیا آپ واقعی تمام مقامی ڈیٹا مٹا کر لاگ آؤٹ کرنا چاہتے ہیں؟ یہ عمل واپس نہیں لیا جا سکتا۔</span>
+            </div>
+            <div class="modal-buttons">
+                <button id="logoutCancelBtn" class="btn-secondary">Cancel</button>
+                <button id="logoutConfirmBtn" class="btn-danger">Confirm & Wipe</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Support Modal (choose owner) -->
+    <div id="supportModal" class="modal-overlay" style="display: none;">
+        <div class="modal-container">
+            <h3><i class="fab fa-whatsapp"></i> Contact Support</h3>
+            <div class="bilingual">
+                <span class="english-text">Choose an owner to contact for profile assistance:</span>
+                <span class="urdu-text">پروفائل مدد کے لیے مالک کو منتخب کریں:</span>
+            </div>
+            <div class="modal-buttons">
+                <button id="contactOwner1Btn" class="btn-primary">Dark Echo</button>
+                <button id="contactOwner2Btn" class="btn-primary">Ibn e Sina</button>
+                <button id="supportCancelBtn" class="btn-secondary">Cancel</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
