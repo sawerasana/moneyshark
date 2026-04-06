@@ -1,0 +1,339 @@
+/* Dashboard specific styles – Cockpit aesthetic */
+.dashboard-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: radial-gradient(circle at 20% 30%, #0a0505, #010101);
+    padding: 1rem;
+    position: relative;
+}
+
+/* Tactical Vignette Overlay (pulsing red edge effect) */
+.dashboard-container::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, transparent 40%, rgba(255,0,0,0.08) 100%);
+    pointer-events: none;
+    z-index: 0;
+    animation: vignettePulse 3s infinite;
+}
+@keyframes vignettePulse {
+    0% { opacity: 0.6; }
+    50% { opacity: 1; }
+    100% { opacity: 0.6; }
+}
+
+/* Top Navigation */
+.top-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(0,0,0,0.7);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-red);
+    padding: 0.8rem 2rem;
+    border-radius: 16px;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    z-index: 2;
+}
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.logo-area i {
+    font-size: 1.5rem;
+    color: var(--neon-red);
+}
+.platform-name {
+    font-weight: bold;
+    font-size: 1rem;
+    color: #ff8888;
+}
+.live-indicator {
+    background: #ff0000;
+    color: white;
+    font-size: 0.6rem;
+    padding: 2px 8px;
+    border-radius: 20px;
+    animation: pulseRed 1s infinite;
+}
+.user-area {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.user-name {
+    font-family: monospace;
+    font-weight: bold;
+}
+.badge {
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.badge.free { background: #444; color: #aaa; }
+.badge.basic { background: #666; color: white; }
+.badge.standard { background: #ffd700; color: #1e1e1e; box-shadow: 0 0 6px gold; }
+.badge.premium { background: #00bfff; color: white; box-shadow: 0 0 8px cyan; }
+.icon-btn {
+    background: #222;
+    border: none;
+    font-size: 1.2rem;
+    padding: 6px 12px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.2s;
+    color: white;
+}
+.icon-btn:hover { background: var(--neon-red); transform: scale(1.05); }
+
+/* Main two columns */
+.main-dashboard {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    z-index: 2;
+}
+@media (max-width: 800px) {
+    .main-dashboard {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+}
+
+.radar-card, .multiplier-card {
+    background: #0a0a0acc;
+    backdrop-filter: blur(4px);
+    border: 1px solid var(--border-red);
+    border-radius: 28px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(255,0,0,0.2);
+}
+.radar-card h3, .multiplier-card h3 {
+    margin-bottom: 1rem;
+    color: var(--neon-red);
+}
+
+/* Radar Container & Canvas */
+.radar-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#radarCanvas {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    background: #030303;
+    border-radius: 50%;
+    box-shadow: 0 0 30px rgba(255,0,0,0.3);
+    display: block;
+    margin: 0 auto;
+}
+.floating-data {
+    position: absolute;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(4px);
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: bold;
+    color: #00ff88;
+    border-left: 2px solid #00ff88;
+    white-space: nowrap;
+}
+.floating-data.altitude { top: 10%; left: 5%; }
+.floating-data.signal { top: 10%; right: 5%; }
+.floating-data.latency { bottom: 10%; left: 50%; transform: translateX(-50%); }
+
+/* Multiplier Display */
+.multiplier-display {
+    font-size: 4rem;
+    font-family: monospace;
+    font-weight: bold;
+    color: #ff3333;
+    text-shadow: 0 0 8px red;
+    margin: 1rem 0;
+}
+
+/* Prediction Button */
+.predict-btn {
+    font-size: 1.2rem;
+    padding: 12px 24px;
+    width: 80%;
+    margin: 0.5rem auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: linear-gradient(135deg, #ff0000, #cc0000);
+    border: none;
+    border-radius: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.predict-btn.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background: #555;
+}
+.predict-btn.cooldown {
+    background: #444;
+    cursor: wait;
+}
+.status-text {
+    margin-top: 0.5rem;
+    font-size: 0.85rem;
+    color: #ff8888;
+}
+
+/* Invite & Earn Button (Neon Blue, pulsing) */
+.invite-btn {
+    background: #1a2a3a;
+    border: 1px solid #00bfff;
+    color: #00bfff;
+    padding: 10px 20px;
+    width: 80%;
+    margin-top: 1rem;
+    border-radius: 40px;
+    font-size: 1rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 0 8px rgba(0,191,255,0.3);
+    animation: breathGlow 2s infinite ease-in-out;
+}
+@keyframes breathGlow {
+    0% { box-shadow: 0 0 5px rgba(0,191,255,0.3); border-color: #00bfff; }
+    50% { box-shadow: 0 0 15px rgba(0,191,255,0.7); border-color: #33ccff; }
+    100% { box-shadow: 0 0 5px rgba(0,191,255,0.3); border-color: #00bfff; }
+}
+.invite-btn:hover {
+    background: #2a3a4a;
+    transform: translateY(-2px);
+    box-shadow: 0 0 20px rgba(0,191,255,0.8);
+}
+.invite-btn i {
+    font-size: 1.1rem;
+}
+
+/* System Terminal (Log Stream) */
+.terminal-stream {
+    background: #0a0a0acc;
+    backdrop-filter: blur(4px);
+    border: 1px solid var(--border-red);
+    border-radius: 20px;
+    padding: 1rem;
+    margin-top: 1rem;
+    z-index: 2;
+}
+.terminal-header {
+    font-weight: bold;
+    color: #00ff88;
+    border-bottom: 1px solid #00ff8844;
+    padding-bottom: 0.5rem;
+    margin-bottom: 0.8rem;
+    font-family: monospace;
+}
+.terminal-blink {
+    animation: blink 1s infinite;
+}
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+.terminal-container {
+    height: 180px;
+    overflow-y: auto;
+    font-family: 'Courier New', monospace;
+    font-size: 0.7rem;
+    background: #000000aa;
+    padding: 0.5rem;
+    border-radius: 8px;
+}
+.terminal-line {
+    padding: 3px 0;
+    border-bottom: 1px solid #00ff8822;
+    color: #0f0;
+    white-space: nowrap;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+}
+/* Custom scrollbar */
+.terminal-container::-webkit-scrollbar {
+    width: 4px;
+}
+.terminal-container::-webkit-scrollbar-track {
+    background: #1a1a1a;
+}
+.terminal-container::-webkit-scrollbar-thumb {
+    background: #ff0000;
+    border-radius: 4px;
+}
+
+/* Responsive adjustments for mobile */
+@media (max-width: 600px) {
+    .dashboard-container {
+        padding: 0.5rem;
+    }
+    .top-nav {
+        padding: 0.5rem 1rem;
+        margin-bottom: 1rem;
+    }
+    .logo-area i {
+        font-size: 1.2rem;
+    }
+    .platform-name {
+        font-size: 0.8rem;
+    }
+    .user-name {
+        font-size: 0.8rem;
+    }
+    .icon-btn {
+        padding: 4px 8px;
+        font-size: 1rem;
+    }
+    .predict-btn, .invite-btn {
+        width: 100%;
+        font-size: 0.9rem;
+        padding: 8px 12px;
+    }
+    .multiplier-display {
+        font-size: 2.5rem;
+    }
+    .floating-data {
+        font-size: 0.6rem;
+        padding: 2px 6px;
+    }
+    .terminal-container {
+        height: 120px;
+        font-size: 0.6rem;
+    }
+}
+
+/* Urdu text inside terminal and buttons */
+.urdu-text {
+    font-family: 'Noto Nastaliq Urdu', serif;
+    font-size: 0.7rem;
+    line-height: 1.8;
+    word-spacing: 0.2em;
+    direction: rtl;
+    display: inline-block;
+    margin-left: 6px;
+}

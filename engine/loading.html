@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>PeshoX Intelligence | Neural Boot</title>
+    <!-- Global assets -->
+    <link rel="stylesheet" href="/assets/css/global.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Page-specific CSS -->
+    <link rel="stylesheet" href="/engine/loading.css">
+    <!-- Global JS -->
+    <script src="/assets/js/global.js" defer></script>
+    <!-- Page-specific JS -->
+    <script src="/engine/loading.js" defer></script>
+</head>
+<body>
+    <div class="main-content loading-container">
+        <div class="loading-wrapper">
+            <!-- SVG Circular Progress Ring -->
+            <div class="ring-container">
+                <svg class="progress-ring" width="200" height="200" viewBox="0 0 200 200">
+                    <circle class="progress-ring-bg" cx="100" cy="100" r="88" stroke-width="6" fill="none" />
+                    <circle class="progress-ring-fill" cx="100" cy="100" r="88" stroke-width="6" fill="none" stroke-dasharray="553.0" stroke-dashoffset="553.0" />
+                </svg>
+                <div class="ring-icon">
+                    <i class="fas fa-satellite-dish"></i>
+                </div>
+            </div>
+
+            <!-- Bilingual Status Area -->
+            <div class="status-area">
+                <div id="statusEng" class="status-eng">Initializing Neural Link...</div>
+                <div id="statusUrdu" class="status-urdu">نیورل لنک شروع ہو رہا ہے...</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Optional audio element (background music is handled by global audio controller) -->
+</body>
+</html>

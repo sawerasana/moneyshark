@@ -1,0 +1,88 @@
+/* Loading page specific styles – cinematic vignette & ring */
+.loading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Pulsing red vignette background */
+.loading-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(0,0,0,0) 30%, rgba(255,0,0,0.12) 100%);
+    animation: vignettePulse 2s infinite;
+    pointer-events: none;
+}
+
+@keyframes vignettePulse {
+    0% { opacity: 0.5; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.02); }
+    100% { opacity: 0.5; transform: scale(1); }
+}
+
+.loading-wrapper {
+    text-align: center;
+    z-index: 1;
+}
+
+/* Ring container */
+.ring-container {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto 2rem;
+}
+
+.progress-ring-bg {
+    stroke: #2a2a2a;
+    stroke-linecap: round;
+}
+
+.progress-ring-fill {
+    stroke: var(--neon-red);
+    stroke-linecap: round;
+    filter: drop-shadow(0 0 6px var(--neon-red));
+    transition: stroke-dashoffset 0.05s linear;
+}
+
+.ring-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 48px;
+    color: var(--neon-red);
+    animation: iconPulse 1.5s infinite;
+}
+
+@keyframes iconPulse {
+    0% { opacity: 0.6; transform: translate(-50%, -50%) scale(1); }
+    50% { opacity: 1; transform: translate(-50%, -50%) scale(1.08); }
+    100% { opacity: 0.6; transform: translate(-50%, -50%) scale(1); }
+}
+
+/* Status area */
+.status-area {
+    margin-top: 1rem;
+}
+.status-eng {
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    color: #ff8888;
+    margin-bottom: 0.5rem;
+}
+.status-urdu {
+    font-family: 'Noto Nastaliq Urdu', sans-serif;
+    font-size: 0.85rem;
+    line-height: 1.8;
+    color: var(--text-muted);
+    direction: rtl;
+}
